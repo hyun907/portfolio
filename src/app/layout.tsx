@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { NavigationProvider } from "@/lib/navigation";
 
 export const metadata: Metadata = {
   title: "백승현 — Frontend Developer",
@@ -24,9 +25,11 @@ export default function RootLayout({
   return (
     <html lang="ko" className="dark">
       <body className="antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <NavigationProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </NavigationProvider>
       </body>
     </html>
   );

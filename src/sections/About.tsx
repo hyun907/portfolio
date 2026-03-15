@@ -6,10 +6,12 @@ import { ProfilePhoto } from "@/components/ui/ProfilePhoto";
 import { Container } from "@/components/layout/Container";
 import { profile } from "@/data/profile";
 import { staggerContainer, fadeUp, fadeIn, defaultViewport } from "@/lib/motion";
+import { useNavigation } from "@/lib/navigation";
 
 export function About() {
+  const { register } = useNavigation();
   return (
-    <section id="about" className="py-32 border-t border-[var(--border)]">
+    <section ref={(el) => register("about", el)} className="scroll-mt-20 py-32 border-t border-[var(--border)]">
       <Container>
         <SectionLabel label="04 — 소개" className="mb-16" />
 

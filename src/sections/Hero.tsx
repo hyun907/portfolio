@@ -1,27 +1,38 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { ProfilePhoto } from "@/components/ui/ProfilePhoto";
 import { Container } from "@/components/layout/Container";
 import { profile } from "@/data/profile";
 import { staggerContainer, fadeUp, fadeIn } from "@/lib/motion";
+import { useNavigation } from "@/lib/navigation";
 import { ArrowDown } from "lucide-react";
 
 export function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement | null>(null);
+  const { register, scrollTo } = useNavigation();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
+
+  // Merge Framer Motion's scroll target ref with the navigation registration ref
+  const setRef = useCallback(
+    (el: HTMLElement | null) => {
+      containerRef.current = el;
+      register("hero", el);
+    },
+    [register]
+  );
 
   const photoY = useTransform(scrollYProgress, [0, 1], [0, 30]);
   const photoOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.6]);
 
   return (
     <section
-      ref={containerRef}
+      ref={setRef}
       className="relative min-h-screen flex items-center pt-16"
       aria-label="Introduction"
     >
@@ -74,7 +85,7 @@ export function Hero() {
 
             {/* CTA buttons */}
             <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
-              <Button href="/#work" variant="primary">
+              <Button onClick={() => scrollTo("work")} variant="primary">
                 작업 보기
               </Button>
               <Button href={`mailto:${profile.links.email}`} variant="secondary" external>

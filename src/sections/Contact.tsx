@@ -7,11 +7,13 @@ import { Container } from "@/components/layout/Container";
 import { contactLinks } from "@/data/contact";
 import { profile } from "@/data/profile";
 import { staggerContainer, fadeUp, fadeIn, defaultViewport } from "@/lib/motion";
+import { useNavigation } from "@/lib/navigation";
 import { ArrowUpRight } from "lucide-react";
 
 export function Contact() {
+  const { register } = useNavigation();
   return (
-    <section id="contact" className="py-32 border-t border-[var(--border)]">
+    <section ref={(el) => register("contact", el)} className="scroll-mt-20 py-32 border-t border-[var(--border)]">
       <Container size="narrow">
         <SectionLabel label="05 — 연락처" className="mb-12" />
 

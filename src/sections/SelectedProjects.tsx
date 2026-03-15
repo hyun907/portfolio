@@ -7,11 +7,13 @@ import { Container } from "@/components/layout/Container";
 import { ProjectCard } from "@/components/project/ProjectCard";
 import { featuredProjects } from "@/data/projects";
 import { staggerContainer, fadeUp, defaultViewport } from "@/lib/motion";
+import { useNavigation } from "@/lib/navigation";
 import { ArrowRight } from "lucide-react";
 
 export function SelectedProjects() {
+  const { register } = useNavigation();
   return (
-    <section id="work" className="py-32 border-t border-[var(--border)]">
+    <section ref={(el) => register("work", el)} className="scroll-mt-20 py-32 border-t border-[var(--border)]">
       <Container>
         {/* Section header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">

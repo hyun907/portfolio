@@ -2,25 +2,47 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
+import { useNavigation, type SectionKey } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
-const navLinks = [
-  { label: "작업", href: "/#work" },
-  { label: "소개", href: "/#about" },
-  { label: "연락", href: "/#contact" },
+const navItems: { label: string; key: SectionKey }[] = [
+  { label: "작업", key: "work" },
+  { label: "소개", key: "about" },
+  { label: "연락", key: "contact" },
 ];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { scrollTo, activeSection } = useNavigation();
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNav = (key: SectionKey) => {
+    setMenuOpen(false);
+    if (pathname === "/") {
+      scrollTo(key);
+    } else {
+      router.push("/");
+    }
+  };
+
+  const navButtonClass = (key: SectionKey) =>
+    cn(
+      "text-sm font-light transition-colors duration-300 tracking-wide cursor-pointer",
+      activeSection === key && pathname === "/"
+        ? "text-[var(--text-primary)]"
+        : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+    );
 
   return (
     <motion.header
@@ -46,14 +68,14 @@ export function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-sm font-light text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-300 tracking-wide"
+            {navItems.map((item) => (
+              <button
+                key={item.key}
+                onClick={() => handleNav(item.key)}
+                className={navButtonClass(item.key)}
               >
-                {link.label}
-              </Link>
+                {item.label}
+              </button>
             ))}
           </nav>
 
@@ -93,15 +115,14 @@ export function Header() {
         className="md:hidden overflow-hidden border-b border-[var(--border)] bg-[var(--background)]"
       >
         <nav className="flex flex-col px-6 pb-6 pt-2 gap-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="text-sm font-light text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors py-1"
+          {navItems.map((item) => (
+            <button
+              key={item.key}
+              onClick={() => handleNav(item.key)}
+              className={cn(navButtonClass(item.key), "text-left py-1")}
             >
-              {link.label}
-            </Link>
+              {item.label}
+            </button>
           ))}
         </nav>
       </motion.div>
