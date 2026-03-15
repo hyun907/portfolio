@@ -28,7 +28,6 @@ export function Hero() {
   );
 
   const photoY = useTransform(scrollYProgress, [0, 1], [0, 30]);
-  const photoOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.6]);
 
   return (
     <section
@@ -88,7 +87,11 @@ export function Hero() {
               <Button onClick={() => scrollTo("work")} variant="primary">
                 작업 보기
               </Button>
-              <Button href={`mailto:${profile.links.email}`} variant="secondary" external>
+              <Button
+                href={`mailto:${profile.links.email}`}
+                variant="secondary"
+                external
+              >
                 연락하기
               </Button>
             </motion.div>
@@ -96,10 +99,18 @@ export function Hero() {
             {/* Scroll hint */}
             <motion.div
               variants={fadeIn}
+              animate={{ y: [0, 6, 0] }}
+              transition={{
+                duration: 2.4,
+                ease: "easeInOut",
+                repeat: Infinity,
+              }}
               className="mt-20 hidden lg:flex items-center gap-2 text-[var(--text-subtle)]"
             >
               <ArrowDown size={12} />
-              <span className="font-mono text-xs tracking-widest uppercase">스크롤</span>
+              <span className="font-mono text-xs tracking-widest uppercase">
+                scroll
+              </span>
             </motion.div>
           </motion.div>
 
@@ -111,16 +122,18 @@ export function Hero() {
             className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
             <motion.div
-              style={{ y: photoY, opacity: photoOpacity }}
+              style={{ y: photoY }}
               className="relative group"
             >
               {/* Photo frame */}
-              <div className="relative w-72 sm:w-80 lg:w-96 aspect-[3/4] overflow-hidden">
-                {/* Accent border detail */}
-                <div className="absolute -top-2 -right-2 w-full h-full border border-[var(--accent)] opacity-20 z-0" />
+              <div className="relative w-72 sm:w-80 lg:w-96 aspect-[3/4]">
+                {/* Accent border detail — accent border는 overflow-hidden 밖에 위치해야
+                    transform+opacity 조합 시 subpixel 클리핑 아티팩트가 생기지 않음 */}
+                <div className="absolute -top-2 -right-2 w-full h-full border border-[var(--accent)] opacity-20 pointer-events-none" />
 
-                {/* Image */}
-                <div className="relative w-full h-full bg-[var(--surface)] z-10">
+                {/* Image — overflow-hidden을 이미지만 감싸도록 분리 */}
+                <div className="absolute inset-0 [clip-path:inset(0)]">
+                <div className="relative w-full h-full bg-[var(--surface)]">
                   <ProfilePhoto
                     src={profile.photo}
                     alt={`${profile.nameEn} — ${profile.role}`}
@@ -129,8 +142,8 @@ export function Hero() {
                     className="group-hover:grayscale-0 group-hover:scale-[1.02]"
                   />
                   {/* Bottom gradient for name overlay */}
-                  <div className="absolute inset-0 flex flex-col items-end justify-end p-6 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent pointer-events-none">
-                    <div className="w-full flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 flex flex-col items-end justify-end p-6 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="w-full flex flex-col gap-1">
                       <span className="font-mono text-xs text-[var(--text-muted)] tracking-wide">
                         {profile.name}
                       </span>
@@ -140,11 +153,12 @@ export function Hero() {
                     </div>
                   </div>
                 </div>
+                </div>
               </div>
 
               {/* Photo caption */}
               <p className="mt-3 font-mono text-xs text-[var(--text-subtle)] text-right">
-                서울, 대한민국
+                Seoul, South Korea
               </p>
             </motion.div>
           </motion.div>
