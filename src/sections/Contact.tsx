@@ -6,16 +6,24 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/layout/Container";
 import { contactLinks } from "@/data/contact";
 import { profile } from "@/data/profile";
-import { staggerContainer, fadeUp, fadeIn, defaultViewport } from "@/lib/motion";
+import {
+  staggerContainer,
+  fadeUp,
+  fadeIn,
+  defaultViewport,
+} from "@/lib/motion";
 import { useNavigation } from "@/lib/navigation";
 import { ArrowUpRight } from "lucide-react";
 
 export function Contact() {
   const { register } = useNavigation();
   return (
-    <section ref={(el) => register("contact", el)} className="scroll-mt-20 py-32 border-t border-[var(--border)]">
-      <Container size="narrow">
-        <SectionLabel label="05 — 연락처" className="mb-12" />
+    <section
+      ref={(el) => register("contact", el)}
+      className="scroll-mt-20 py-32 border-t border-[var(--border)]"
+    >
+      <Container size="default">
+        <SectionLabel label="05 — Contact" className="mb-12" />
 
         <motion.div
           variants={staggerContainer}
@@ -28,7 +36,7 @@ export function Contact() {
             variants={fadeUp}
             className="text-4xl sm:text-5xl lg:text-6xl font-extralight text-[var(--text-primary)] tracking-tight leading-tight mb-6"
           >
-            함께 만들어봐요.
+            함께 만들어요!
           </motion.h2>
 
           {/* Subline */}
@@ -36,7 +44,8 @@ export function Contact() {
             variants={fadeUp}
             className="text-base font-light text-[var(--text-muted)] leading-relaxed mb-12 max-w-[44ch]"
           >
-            프론트엔드 포지션, 협업, 흥미로운 프로젝트에 열려 있습니다. 공감되는 부분이 있다면 연락해 주세요.
+            프론트엔드 포지션, 협업, 재미있는 프로젝트에 열려 있습니다. <br />
+            연락 주세요 :-)
           </motion.p>
 
           {/* Primary CTA */}

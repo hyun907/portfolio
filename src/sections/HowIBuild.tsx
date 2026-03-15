@@ -12,7 +12,10 @@ export function HowIBuild() {
       <Container>
         {/* Section header */}
         <div className="mb-20">
-          <SectionLabel label="02 — 프로세스" className="mb-4" />
+          <SectionLabel
+            label="02 — How I design and build interfaces"
+            className="mb-4"
+          />
           <motion.h2
             variants={fadeUp}
             initial="hidden"
@@ -20,7 +23,7 @@ export function HowIBuild() {
             viewport={defaultViewport}
             className="text-4xl sm:text-5xl font-extralight text-[var(--text-primary)] tracking-tight max-w-xl"
           >
-            나의 빌드 방식
+            My Process
           </motion.h2>
           <motion.p
             variants={fadeUp}
@@ -29,7 +32,9 @@ export function HowIBuild() {
             viewport={defaultViewport}
             className="mt-5 text-base font-light text-[var(--text-muted)] max-w-[52ch] leading-relaxed"
           >
-            오랜 시간 만들고, 부수고, 다듬으며 형성된 작업 철학 — AI는 판단을 대체하는 게 아니라 협력자로 곁에 있습니다.
+            만들고, 부수고, 다시 다듬는 과정을 통해 형성된 작업 방식과
+            철학입니다. AI는 판단을 대신하는 도구가 아니라, 함께 문제를 해결하는
+            협력자라고 믿습니다.
           </motion.p>
         </div>
 

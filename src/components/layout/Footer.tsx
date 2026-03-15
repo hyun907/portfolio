@@ -12,7 +12,7 @@ export function Footer() {
             © {year} {profile.nameEn}
           </span>
           <span className="font-mono text-xs text-[var(--text-subtle)]">
-            프론트엔드 개발자 · AI 네이티브 빌더
+            Frontend Developer · AI-Assisted Development
           </span>
         </div>
       </Container>

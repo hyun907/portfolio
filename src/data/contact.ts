@@ -20,8 +20,8 @@ export const contactLinks: ContactLink[] = [
   },
   {
     label: "블로그",
-    value: "준비 중",
-    href: "#",
-    external: false,
+    value: "https://velog.io/@hyun907",
+    href: "https://velog.io/@hyun907/posts",
+    external: true,
   },
 ];

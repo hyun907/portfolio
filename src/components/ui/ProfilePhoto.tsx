@@ -24,7 +24,7 @@ export function ProfilePhoto({
       alt={alt}
       fill
       className={cn(
-        "object-cover object-top grayscale-[20%] transition-all duration-700",
+        "object-cover object-top grayscale-[25%] transition-all duration-700",
         className
       )}
       priority={priority}

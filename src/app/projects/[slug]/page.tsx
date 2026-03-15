@@ -119,7 +119,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         <div className="mt-16 pt-10 border-t border-[var(--border)]">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-sm font-light text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-light text-[var(--text-muted)] hover:text-[var(--accent-hover)] transition-colors"
           >
             <ArrowLeft size={14} /> 전체 프로젝트로 돌아가기
           </Link>

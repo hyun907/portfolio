@@ -50,10 +50,10 @@ export function Header() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
         scrolled
-          ? "border-b border-[var(--border)] bg-[rgba(10,10,10,0.85)] backdrop-blur-md"
-          : "bg-transparent"
+          ? "border-[var(--border)] bg-[rgba(10,10,10,0.85)] backdrop-blur-md"
+          : "border-transparent bg-transparent"
       )}
     >
       <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-16">

@@ -5,13 +5,21 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ProfilePhoto } from "@/components/ui/ProfilePhoto";
 import { Container } from "@/components/layout/Container";
 import { profile } from "@/data/profile";
-import { staggerContainer, fadeUp, fadeIn, defaultViewport } from "@/lib/motion";
+import {
+  staggerContainer,
+  fadeUp,
+  fadeIn,
+  defaultViewport,
+} from "@/lib/motion";
 import { useNavigation } from "@/lib/navigation";
 
 export function About() {
   const { register } = useNavigation();
   return (
-    <section ref={(el) => register("about", el)} className="scroll-mt-20 py-32 border-t border-[var(--border)]">
+    <section
+      ref={(el) => register("about", el)}
+      className="scroll-mt-20 py-32 border-t border-[var(--border)]"
+    >
       <Container>
         <SectionLabel label="04 — 소개" className="mb-16" />
 
@@ -27,7 +35,7 @@ export function About() {
               variants={fadeUp}
               className="text-4xl sm:text-5xl font-extralight text-[var(--text-primary)] tracking-tight leading-tight mb-10"
             >
-              내가 인터페이스를 만드는 이유
+              화면 뒤의 경험을 만드는 개발자
             </motion.h2>
 
             <div className="space-y-5 max-w-[58ch]">
@@ -35,28 +43,46 @@ export function About() {
                 variants={fadeUp}
                 className="text-base font-light text-[var(--text-muted)] leading-relaxed"
               >
-                디자인 결정과 구현 제약이 만나는 경계에 대한 탐구에서 프론트엔드 개발을 시작했습니다. 소프트웨어의 대부분은 눈에 보이지 않지만, 인터페이스는 다릅니다. 인터페이스는 제품과 사용자 사이의 계약입니다.
+                저는 사용자가 실제로 마주하는 경험을 만드는 프론트엔드
+                개발자입니다. 처음에는 시각 디자인에 관심이 많았고, 카드뉴스나
+                포스터처럼 결과물이 눈에 보이는 작업을 좋아했습니다.
+              </motion.p>
+
+              <motion.p
+                variants={fadeUp}
+                className="text-base font-light text-[var(--text-muted)] leading-relaxed"
+              ></motion.p>
+
+              <motion.p
+                variants={fadeUp}
+                className="text-base font-light text-[var(--text-muted)] leading-relaxed"
+              >
+                그러다 웹과 앱의 UX/UI를 접하면서 단순히 화면을 예쁘게 만드는
+                것보다, 사용자가 어떤 흐름으로 움직이고 어떤 감각으로 서비스를
+                경험하는지가 더 중요하다는 것을 알게 되었습니다. 그때부터 화면을
+                그리는 사람을 넘어, 실제로 동작하는 경험을 만드는 사람이 되고
+                싶었습니다.
               </motion.p>
 
               <motion.p
                 variants={fadeUp}
                 className="text-base font-light text-[var(--text-muted)] leading-relaxed"
               >
-                인터페이스에 신경을 쓰는 이유는, UI의 품질이 만든 사람들이 사용자를 얼마나 존중하는지를 드러낸다고 믿기 때문입니다. 인터페이스의 거친 부분은 누군가가 사용자가 느끼기 전에 생각을 멈췄다는 신호입니다.
+                저는 기능을 구현하는 데서 멈추지 않고, 기획의 의도와 사용자의
+                맥락까지 함께 이해하려고 노력합니다. 작은 인터랙션과 구조의
+                차이가 서비스의 인상을 바꾼다고 믿기 때문에, 사용성이 자연스럽고
+                디테일이 살아 있는 화면을 만드는 것을 중요하게 생각합니다.
               </motion.p>
 
               <motion.p
                 variants={fadeUp}
                 className="text-base font-light text-[var(--text-muted)] leading-relaxed"
               >
-                AI는 일하는 방식을 바꿨지만, 중요하게 여기는 것은 바꾸지 않았습니다. 아이디어에서 작동하는 프로토타입까지의 거리를 줄이는 데 활용하지만 — 판단, 취향, 거부의 핵심 층위는 제가 지킵니다. AI는 무언가 어색하다는 걸 모릅니다. 그건 여전히 사람의 문제입니다.
-              </motion.p>
-
-              <motion.p
-                variants={fadeUp}
-                className="text-base font-light text-[var(--text-muted)] leading-relaxed"
-              >
-                되고 싶은 빌더의 모습: 문제를 명확하게 생각하고, 정밀하게 실행하며, 바로 눈에 띄지 않는 디테일에서도 사려 깊음이 느껴지는 것들을 만드는 사람.
+                AI 도구는 아이디어를 빠르게 실험하고 구현 속도를 높이는 데
+                적극적으로 활용하고 있습니다. 다만 최종적인 사용자 경험의
+                완성도는 결국 사람의 판단과 감각에서 나온다고 생각합니다. 그래서
+                더 빠르게 만드는 것만큼, 무엇을 남기고 무엇을 다듬을지 스스로
+                판단하는 개발자가 되고자 합니다.
               </motion.p>
             </div>
 
@@ -66,7 +92,7 @@ export function About() {
               className="mt-12 flex items-center gap-4 text-xs font-mono text-[var(--text-subtle)] tracking-wider"
             >
               <span className="w-8 h-px bg-[var(--accent)] opacity-40 shrink-0" />
-              <span>프론트엔드 · 프로덕트 · AI 네이티브</span>
+              <span>Web · Product · AI AI-Assisted Developer</span>
             </motion.div>
           </motion.div>
 

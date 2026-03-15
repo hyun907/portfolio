@@ -10,7 +10,10 @@ import { staggerContainer, fadeUp, defaultViewport } from "@/lib/motion";
 import type { ExperimentStatus } from "@/types/experiment";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 
-const statusConfig: Record<ExperimentStatus, { label: string; className: string }> = {
+const statusConfig: Record<
+  ExperimentStatus,
+  { label: string; className: string }
+> = {
   live: { label: "라이브", className: "text-[var(--accent)]" },
   wip: { label: "진행 중", className: "text-[var(--text-muted)]" },
   concept: { label: "기획", className: "text-[var(--text-subtle)]" },
@@ -40,7 +43,8 @@ export function Playground() {
               viewport={defaultViewport}
               className="mt-4 text-sm font-light text-[var(--text-muted)] max-w-[44ch] leading-relaxed"
             >
-              계속 만들어가는 작은 것들 — 인터랙션, 도구, 그리고 여백에서 탐구하는 아이디어들.
+              계속 만들어가는 작은 실험들 —<br/>인터랙션, 도구, 그리고 여백 속에서
+              탐구하는 아이디어들.
             </motion.p>
           </div>
           <motion.div

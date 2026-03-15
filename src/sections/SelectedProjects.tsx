@@ -13,12 +13,15 @@ import { ArrowRight } from "lucide-react";
 export function SelectedProjects() {
   const { register } = useNavigation();
   return (
-    <section ref={(el) => register("work", el)} className="scroll-mt-20 py-32 border-t border-[var(--border)]">
+    <section
+      ref={(el) => register("work", el)}
+      className="scroll-mt-20 py-32 border-t border-[var(--border)]"
+    >
       <Container>
         {/* Section header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
           <div>
-            <SectionLabel label="01 — 선택된 작업" className="mb-4" />
+            <SectionLabel label="01 — Featured Projects" className="mb-4" />
             <motion.h2
               variants={fadeUp}
               initial="hidden"
@@ -26,7 +29,7 @@ export function SelectedProjects() {
               viewport={defaultViewport}
               className="text-4xl sm:text-5xl font-extralight text-[var(--text-primary)] tracking-tight"
             >
-              만든 것들
+              Projects
             </motion.h2>
           </div>
 

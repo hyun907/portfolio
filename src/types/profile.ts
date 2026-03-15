@@ -2,7 +2,6 @@ export type SocialLinks = {
   github: string;
   email: string;
   blog: string | null;
-  resume: string | null;
 };
 
 export type Profile = {

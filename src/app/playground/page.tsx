@@ -9,7 +9,10 @@ import { staggerContainer, fadeUp, defaultViewport } from "@/lib/motion";
 import type { ExperimentStatus } from "@/types/experiment";
 import { ArrowUpRight } from "lucide-react";
 
-const statusConfig: Record<ExperimentStatus, { label: string; className: string }> = {
+const statusConfig: Record<
+  ExperimentStatus,
+  { label: string; className: string }
+> = {
   live: { label: "라이브", className: "text-[var(--accent)]" },
   wip: { label: "진행 중", className: "text-[var(--text-muted)]" },
   concept: { label: "기획", className: "text-[var(--text-subtle)]" },
@@ -20,7 +23,7 @@ export default function PlaygroundPage() {
     <div className="pt-32 pb-32">
       <Container>
         <div className="mb-16">
-          <SectionLabel label="실험" className="mb-4" />
+          <SectionLabel label="Experiment" className="mb-4" />
           <motion.h1
             variants={fadeUp}
             initial="hidden"
@@ -35,7 +38,8 @@ export default function PlaygroundPage() {
             animate="visible"
             className="text-base font-light text-[var(--text-muted)] max-w-[48ch] leading-relaxed"
           >
-            소규모 실험, 인터랙션 연구, 그리고 더 큰 프로젝트의 여백에서 탐구하는 것들.
+            소규모 실험, 인터랙션 연구, 그리고 더 큰 프로젝트의 여백에서
+            탐구하는 것들.
           </motion.p>
         </div>
 
