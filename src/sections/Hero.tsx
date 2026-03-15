@@ -121,38 +121,34 @@ export function Hero() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
             className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
-            <motion.div
-              style={{ y: photoY }}
-              className="relative group"
-            >
+            <motion.div style={{ y: photoY }} className="relative group">
               {/* Photo frame */}
               <div className="relative w-72 sm:w-80 lg:w-96 aspect-[3/4]">
                 {/* Accent border detail — accent border는 overflow-hidden 밖에 위치해야
                     transform+opacity 조합 시 subpixel 클리핑 아티팩트가 생기지 않음 */}
                 <div className="absolute -top-2 -right-2 w-full h-full border border-[var(--accent)] opacity-20 pointer-events-none" />
 
-                {/* Image — overflow-hidden을 이미지만 감싸도록 분리 */}
-                <div className="absolute inset-0 [clip-path:inset(0)]">
-                <div className="relative w-full h-full bg-[var(--surface)]">
-                  <ProfilePhoto
-                    src={profile.photo}
-                    alt={`${profile.nameEn} — ${profile.role}`}
-                    priority
-                    sizes="(max-width: 640px) 288px, (max-width: 1024px) 320px, 384px"
-                    className="group-hover:grayscale-0 group-hover:scale-[1.02]"
-                  />
-                  {/* Bottom gradient for name overlay */}
-                  <div className="absolute inset-0 flex flex-col items-end justify-end p-6 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="w-full flex flex-col gap-1">
-                      <span className="font-mono text-xs text-[var(--text-muted)] tracking-wide">
-                        {profile.name}
-                      </span>
-                      <span className="font-mono text-xs text-[var(--text-subtle)]">
-                        {profile.role}
-                      </span>
+                <div className="absolute inset-1 [clip-path:inset(1)]">
+                  <div className="relative w-full h-full bg-[var(--surface)]">
+                    <ProfilePhoto
+                      src={profile.photo}
+                      alt={`${profile.nameEn} — ${profile.role}`}
+                      priority
+                      sizes="(max-width: 640px) 288px, (max-width: 1024px) 320px, 384px"
+                      className="group-hover:grayscale-0 group-hover:scale-[1.02]"
+                    />
+                    {/* Bottom gradient for name overlay */}
+                    <div className="absolute inset-0 flex flex-col items-end justify-end p-6 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="w-full flex flex-col gap-1">
+                        <span className="font-mono text-xs text-[var(--text-muted)] tracking-wide">
+                          {profile.name}
+                        </span>
+                        <span className="font-mono text-xs text-[var(--text-subtle)]">
+                          {profile.role}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
                 </div>
               </div>
 

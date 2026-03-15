@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
 import { useNavigation, type SectionKey } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const navItems: { label: string; key: SectionKey }[] = [
   { label: "작업", key: "work" },
@@ -52,7 +53,7 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
         scrolled
-          ? "border-[var(--border)] bg-[rgba(10,10,10,0.85)] backdrop-blur-md"
+          ? "border-[var(--border)] bg-[var(--header-bg)] backdrop-blur-md"
           : "border-transparent bg-transparent"
       )}
     >
@@ -77,6 +78,8 @@ export function Header() {
                 {item.label}
               </button>
             ))}
+            <div className="w-px h-3.5 bg-[var(--border)]" aria-hidden />
+            <ThemeToggle />
           </nav>
 
           {/* Mobile menu button */}
@@ -124,6 +127,12 @@ export function Header() {
               {item.label}
             </button>
           ))}
+          <div className="pt-2 border-t border-[var(--border)] flex items-center justify-between">
+            <span className="font-mono text-xs tracking-widest uppercase text-[var(--text-subtle)]">
+              테마
+            </span>
+            <ThemeToggle />
+          </div>
         </nav>
       </motion.div>
     </motion.header>

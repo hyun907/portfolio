@@ -8,6 +8,7 @@
   font-style: normal;
 }
 
+/* ── Dark theme (default) ───────────────────────────────── */
 :root {
   --background: #0d0d0e;
   --surface: #141415;
@@ -17,6 +18,21 @@
   --text-subtle: #5f5f5f;
   --accent: #6366f1;
   --accent-hover: #818cf8;
+  --header-bg: rgba(13, 13, 14, 0.88);
+}
+
+/* ── Light theme ────────────────────────────────────────── */
+/* Warm off-white — editorial, not generic white */
+.light {
+  --background: #f7f6f1;
+  --surface: #f9f8f7;
+  --border: #d5d3cb;
+  --text-primary: #1a1917;
+  --text-muted: #6b6860;
+  --text-subtle: #a8a49d;
+  --accent: #5255d9;
+  --accent-hover: #4244c0;
+  --header-bg: rgba(245, 244, 240, 0.92);
 }
 
 @theme inline {
