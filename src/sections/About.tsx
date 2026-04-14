@@ -92,7 +92,7 @@ export function About() {
               className="mt-12 flex items-center gap-4 text-xs font-mono text-[var(--text-subtle)] tracking-wider"
             >
               <span className="w-8 h-px bg-[var(--accent)] opacity-40 shrink-0" />
-              <span>Web · Product · AI AI-Assisted Developer</span>
+              <span>Web · Product · AI-Assisted Developer</span>
             </motion.div>
           </motion.div>
 
